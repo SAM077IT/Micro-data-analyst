@@ -68,28 +68,12 @@ User-friendly navigation
 🧰 Tech Stack
 Backend
 
-Python
-
-Flask
-
-Flask-Login
-
-Flask-SQLAlchemy
-
-Flask-Migrate
+Python, Flask, Flask-Login, Flask-SQLAlchemy, Flask-Migrate
 
 Database: MySQL (development & production-ready)
 
 Data Processing: pandas, NumPy
 
-Frontend: Jinja2 Templates
+Frontend: Jinja2 Templates, Bootstrap, Chart.js
 
-Bootstrap
-
-Chart.js
-
-File Handling
-
-CSV & Excel uploads
-
-Secure file storage
+File Handling: CSV & Excel uploads, Secure file storage
