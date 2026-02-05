@@ -10,15 +10,15 @@ Micro-Data Analyst is a web-based data visualization platform built with Flask t
 
 The application supports:
 
-Secure user authentication
+  <li>Secure user authentication</li>
 
-Manual data entry & dataset uploads
+  <li>Manual data entry & dataset uploads</li>
 
-Interactive visualizations
+  <li>Interactive visualizations</li>
 
-Tabular data views
+  <li>Tabular data views</li>
 
-Exporting processed data
+  <li>Exporting processed data</li><br>
 
 This project was developed as a portfolio project to demonstrate backend engineering, data processing, and dashboard development skills.
 
