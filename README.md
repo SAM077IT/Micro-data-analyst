@@ -22,7 +22,7 @@ The application supports:
 
 This project was developed as a portfolio project to demonstrate backend engineering, data processing, and dashboard development skills.
 
-✨ Key Features
+✨ Key Features<br>
 🔐 Authentication & User Management
 
 User registration and login
