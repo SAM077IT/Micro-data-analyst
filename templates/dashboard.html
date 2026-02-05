@@ -19,6 +19,39 @@
         </ul>
     </nav>
     <h1>You are logged in as {{ username }}!</h1>
+    <div>
+        <form action="{{ url_for('dashboard') }}" method="post" enctype="multipart/form-data">
+            <label for="Upload">Upload your data file</label>
+            <input type="file" name="file"
+                accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel, .csv, text/plain"
+                required>
+            <input type="submit" value="Upload File">
+        </form>
+        <!-- <span>{{ file }}</span> -->
+    </div>
+    <div>
+        <h2>JavaScript JSON Request</h2>
+        <button type="button" id="post_json">Post JSON</button>
+    </div>
+    <script type="text/javascript">
+        btn = document.querySelector("#post_json")
+        const jsonData = { name: 'Sam', greetings: 'Hello' }
+        btn.addEventListener('click', () => {
+            fetch('{{ url_for("handle_post") }}', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8'
+                },
+                body: JSON.stringify(jsonData)
+            })
+                .then(response => response.text())
+                .then(text => {
+                    console.log(text); // <-- this will show the real error page
+                })
+                .catch(err => console.error(err));
+
+        });
+    </script>
 </body>
 
 </html>

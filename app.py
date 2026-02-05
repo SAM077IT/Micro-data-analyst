@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_migrate import Migrate
+import pandas as pd
 
 
 # Initialize Flask app
@@ -96,11 +97,29 @@ def login():
 # Protected dashboard route
 
 
-@app.route("/dashboard")
+@app.route("/dashboard", methods=["GET", "POST"])
 @login_required
 def dashboard():
-    return render_template("dashboard.html", username=current_user.username)
+    if request.method == "POST":
+        file = request.files["file"]
+        if file.content_type == "text/plain":
+            return file.read().decode()
+        elif file.content_type == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" or file.content_type == "application/vnd.ms-excel":
+            df = pd.read_excel(file)
+            return df.to_html()
 
+    else:
+        return render_template("dashboard.html", username=current_user.username)
+
+
+@app.route("/handle_post", methods=["POST"])
+def handle_post():
+    greetings = request.json['greetings']
+    name = request.json['name']
+
+    with open('text_file.txt', 'w') as f:
+        f.write(f"{greetings} {name}")
+    return jsonify({'message': 'successfully written!'})
 # Logout route
 
 
