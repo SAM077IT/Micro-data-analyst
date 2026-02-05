@@ -78,25 +78,15 @@ Flask-SQLAlchemy
 
 Flask-Migrate
 
-Database
+Database: MySQL (development & production-ready)
 
-SQLite (development)
+Data Processing: pandas, NumPy
 
-PostgreSQL (production-ready)
+Frontend: Jinja2 Templates
 
-Data Processing
+Bootstrap
 
-pandas
-
-NumPy
-
-Frontend
-
-Jinja2 Templates
-
-Bootstrap / Tailwind CSS
-
-Chart.js / Plotly.js
+Chart.js
 
 File Handling
 
